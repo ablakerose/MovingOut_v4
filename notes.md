@@ -55,3 +55,9 @@ Three users
 - one store owner
 - two others making offers
 Generate 5 items and assign those to a store
+
+once I seed items and have store, then start wtih an index page of the store view with all the items from that store. 
+Get the user sign-in / sign-up process working
+User being able to look at a store and make an offer on an item.
+Store owner see all the offers. (from store show page, check current user id's equal to owner of the store, and if it is, I will open up more funcitonality for the owner: adding items, etc.)
+Then, I can worry about giving other users ability to create store. 
