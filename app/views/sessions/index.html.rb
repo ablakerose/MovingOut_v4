@@ -1,1 +1,0 @@
-<h1>Welcome to MovingOut</h1>
