@@ -61,3 +61,10 @@ Get the user sign-in / sign-up process working
 User being able to look at a store and make an offer on an item.
 Store owner see all the offers. (from store show page, check current user id's equal to owner of the store, and if it is, I will open up more funcitonality for the owner: adding items, etc.)
 Then, I can worry about giving other users ability to create store. 
+
+
+To find something's errors
+object.errors OR object.save!
+
+
+When you have belongs_to relationships, must define them or an object WONT save to the database.
