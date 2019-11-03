@@ -1,0 +1,17 @@
+<h1> New Item </h1>
+
+<%= form_for (@item) do |f|%>
+    <%= f.label :list_price %>
+    <%= f.text_field :list_price %>
+<br>
+<br>
+    <%= f.label :sold %>
+    <%= f.text_field :sold %>
+<br>
+<br>
+    <%= f.label :item_name %>
+    <%= f.text_field :item_name %>
+    
+<%= f.submit %>  
+<% end %> 
+

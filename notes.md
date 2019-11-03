@@ -68,3 +68,14 @@ object.errors OR object.save!
 
 
 When you have belongs_to relationships, must define them or an object WONT save to the database.
+
+
+QUESTIONS
+
+
+To view all a user's items. 
+A user has many items through offers. User.offers.items
+
+
+
+<%= f.hidden_field :user_id, value: session[:user_id]%>
