@@ -10,7 +10,7 @@ def create
         #log them in
         session[:user_id] = @user.id 
         #redirect to the show page
-        redirect_to @user
+        redirect_to items_path
     else
         render :new
     end
