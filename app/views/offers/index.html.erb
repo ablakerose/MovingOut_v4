@@ -1,16 +1,8 @@
-<% if @item %>
-
-<h1> Offers on <%= @item.item_name %></h1>
-
-<% else %>
-
-<h1> All Item Offers </h1>
- <% end %>
+<h1><%=offers_header(@item)%></h1>
 <ul>
 <% @offers.each do |offer| %>
     <li>
     <%=offer.item.item_name %> - <%= offer.offer_price %> by <%=offer.user.username %>
-      
     </li>
   <% end %>
 </ul>
