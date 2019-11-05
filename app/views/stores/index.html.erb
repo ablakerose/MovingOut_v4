@@ -3,9 +3,12 @@
 <% @items.each do |item| %>
     <li>
       <%= link_to item.item_name, item_path(item) %> -
-      <%= link_to "See Item Offers", item_offers_path(item) %>
-      <%= link_to "Make an Offer", new_item_offer_path(item) %>
-    </li>
+      <%= link_to "See Offers on this Item", item_offers_path(item) %>
+      <%= render_offer_button(item) %>
+      </li>
   <% end %>
 </ul>
+
+
+
 

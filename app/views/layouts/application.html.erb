@@ -12,9 +12,11 @@
   <body>
   
   <div>
+  
     <% if logged_in? %>
     <%= link_to "Logout |", logout_path, method:"delete" %>
-    <%= link_to "Marketplace", stores_path %>
+    <%= link_to "Marketplace |", stores_path %>
+    <%= link_to "My Offers", user_path(current_user) %>
     
    
     <% else %>

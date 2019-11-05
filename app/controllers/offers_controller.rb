@@ -12,11 +12,11 @@ class OffersController < ApplicationController
     end
 
     def new
+       
         id = params[:item_id]
         if id && @item = Item.find_by_id(id)
             @offer = @item.offers.build
-        else 
-            @offer = Offer.new 
+        else
             redirect_to stores_path
         end
     end
@@ -33,18 +33,24 @@ class OffersController < ApplicationController
         end
     end
 
-   
-
-
-   
-  
-
     def edit
         @offer = Offer.find(params[:id])
     end
 
+    def update
+        @offer = Offer.find(params[:id])
+        if @offer        
+        @offer.offer_price = offer_params[:offer_price] 
+        @offer.save
+        end
+        redirect_to user_path(current_user)
+    end
+    
+    def show
+    end
+
     def destroy
-        @item = Item.find(params[:id]).destroy
+        @offer = Offer.find(params[:id]).destroy 
         redirect_to stores_path
     end
 

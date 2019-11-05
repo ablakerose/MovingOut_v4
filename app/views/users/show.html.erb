@@ -6,22 +6,24 @@
 <% @user.offers.each do |offer| %>
     <li>
       <%= link_to offer.item.item_name, item_path(offer.item) %> of $<%= offer.offer_price %>0 on <%= offer.created_at.strftime("%b %d, %Y") %>
+      <%= button_to "delete", offer, method: :delete%>
       <br>
       <% if offer.item.sold %>
         Congratulations, your offer has been accepted! <br><br>
+       
         <% else %>
       Your offer is pending. Other offers on this item include: <br>
       <% offer.item.offers.each do |item_offer| %>
         $<%= item_offer.offer_price %>0 
-        made on <%= item_offer.created_at.strftime("%b %d, %Y") %> 
+        made on 
+        <%= item_offer.created_at.strftime("%b %d, %Y") %> 
         <br>
         <% end %>
         <br> <br>
-        <% end %>
+        <% end %>        
 
-  
-        
-   
+          
+                 
     </li>
   <% end %>
 </ul>

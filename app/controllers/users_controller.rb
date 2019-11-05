@@ -22,6 +22,11 @@ def show
     redirect_to '/' if !@user 
 end
 
+def destroy
+    @user = User.find(params[:id]).destroy
+    direct_to user_path(@user)
+end
+
 private
 
 def user_params
