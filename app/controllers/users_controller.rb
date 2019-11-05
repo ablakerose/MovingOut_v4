@@ -10,7 +10,7 @@ def create
         #log them in
         session[:user_id] = @user.id 
         #redirect to the show page
-        redirect_to items_path
+        redirect_to stores_path
     else
         render :new
     end
@@ -28,5 +28,8 @@ def user_params
     params.require(:user).permit(:username, :email, :password)
 end
 
+# def formatted_created_by
+#     self.created_at.strftime("%b %d, %Y")
+# end
 
 end

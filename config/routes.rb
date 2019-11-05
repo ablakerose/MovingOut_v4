@@ -17,13 +17,13 @@ root 'sessions#home'
     resources :stores, only: [:new, :create, :index]
   end
 
-  resources :users, only: [:new, :create, :index] do
+  resources :users, only: [:new, :create, :index, :show] do
     resources :items, only: [:new, :create, :index]
     #using these three is called shallow routing
     #we only want something to be nested if we need it nested
   end
 
-  resources :items, only: [:index, :show, :new] do
+  resources :items, only: [:index, :show, :new, :edit, :destroy] do
     resources :offers, only: [:new, :create, :index]
     #resouces :offers, shallow:true
   end

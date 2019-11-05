@@ -5,24 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
-
+  
     <link rel="stylesheet" href="/styles/index.css">
   </head>
 
   <body>
   
-    <div>
+  <div>
     <% if logged_in? %>
-    <%= link_to "Logout", logout_path, method:"delete" %>
-    <%= link_to "Store Index", stores_path %>
-    <%= link_to "New Item", new_item_path %>
+    <%= link_to "Logout |", logout_path, method:"delete" %>
+    <%= link_to "Marketplace", stores_path %>
+    
    
     <% else %>
       <%= link_to "Sign Up", signup_path %> |
       <%= link_to "Log In", login_path %> |
     <% end %>
     </div>
+
+    
   <%= yield %>
   </body>
 </html>

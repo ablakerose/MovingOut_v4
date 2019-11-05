@@ -8,4 +8,6 @@ module OfferHelper
         end
     end
 
+  
+
 end

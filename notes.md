@@ -79,3 +79,7 @@ A user has many items through offers. User.offers.items
 
 
 <%= f.hidden_field :user_id, value: session[:user_id]%>
+
+
+FOR SUNDAY NOVEMBER 3rd: create button store index page so that logged in user can make an offer on a particular item.
+- SEE study group - rails nested routes - 10/16/19 - 40:54
