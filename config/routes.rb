@@ -13,6 +13,8 @@ root 'sessions#home'
   get '/logout' => 'sessions#destroy'
   #it's important that this is a delete so the user cannot see it in the URL bar
   
+  resources :offers
+
   resources :stores, only: [:index, :show] do
     resources :stores, only: [:new, :create, :index]
   end
@@ -27,6 +29,8 @@ root 'sessions#home'
     resources :offers, only: [:new, :create, :index]
     #resouces :offers, shallow:true
   end
+
+
 #NESTED ROUTES
 # need new and show or index
 #she doesn't like 'new' when it's under user (MyBlog pt3 min7:00)

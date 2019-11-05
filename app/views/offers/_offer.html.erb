@@ -1,8 +1,12 @@
-<%= form_with @offer do |f|%>
-
+<%= form_with model: [@item, @offer], local: true do |f|%>
     Make an offer for: 
-    <%=f.number_field(:offer_price) %>
-    <br><br>
+    
+    <%=f.label :offer_price %>
+    <%=f.number_field :offer_price %>
 
     <%= f.submit %>
     <% end %>
+
+    
+
+ 

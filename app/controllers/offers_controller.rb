@@ -16,9 +16,28 @@ class OffersController < ApplicationController
         if id && @item = Item.find_by_id(id)
             @offer = @item.offers.build
         else 
-            @offer = current_user.offers.build 
+            @offer = Offer.new 
+            redirect_to stores_path
         end
     end
+
+    def create
+        id = params[:item_id]
+        if id && @item = Item.find_by_id(id)
+            offer_price = offer_params[:offer_price] 
+            @offer = current_user.offers.build(item_id: id, offer_price: offer_price)
+            @offer.save
+            redirect_to user_path(current_user)
+        else
+            redirect_to new_item_offer_path(id)
+        end
+    end
+
+   
+
+
+   
+  
 
     def edit
         @offer = Offer.find(params[:id])
@@ -30,9 +49,8 @@ class OffersController < ApplicationController
     end
 
 private
-
-def formatted_created_by
-    self.created_at.strftime("%b %d, %Y")
+def offer_params
+    params.require(:offer).permit(:offer_price)
 end
 
 end
