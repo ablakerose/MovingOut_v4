@@ -83,3 +83,24 @@ A user has many items through offers. User.offers.items
 
 FOR SUNDAY NOVEMBER 3rd: create button store index page so that logged in user can make an offer on a particular item.
 - SEE study group - rails nested routes - 10/16/19 - 40:54
+
+
+How sessions work: 
+Video Review: Authentication-- https://learn.co/tracks/online-software-engineering-structured/rails/auth/video-review-authentication 1:00:00
+
+ApplicationController - you can put functionality that all 
+def authentication_required
+    if !logged_in?
+        redirect_to root_path
+    end
+end
+
+def logged_in?
+session[:user_id]
+end
+ApplicationController<ActionController::Base>
+def current_user
+    User.find(session[:user_id])
+end
+#Methods you build in controllers do not permeate to your ActionVew part of your code
+#THIS IS A HELPER METHOD, PLEASE LET ME USE IT IN MY VIEW!

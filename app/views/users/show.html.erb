@@ -10,8 +10,7 @@
       <br>
       <% if offer.item.sold %>
         Congratulations, your offer has been accepted! <br><br>
-       
-        <% else %>
+      <% else %>
       Your offer is pending. Other offers on this item include: <br>
       <% offer.item.offers.each do |item_offer| %>
         $<%= item_offer.offer_price %>0 
@@ -20,10 +19,7 @@
         <br>
         <% end %>
         <br> <br>
-        <% end %>        
-
-          
-                 
+        <% end %>           
     </li>
   <% end %>
 </ul>

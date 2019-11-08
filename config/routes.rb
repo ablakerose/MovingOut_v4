@@ -13,6 +13,10 @@ root 'sessions#home'
   get '/logout' => 'sessions#destroy'
   #it's important that this is a delete so the user cannot see it in the URL bar
   
+  #omniauth callback route
+  get "/auth/google_oauth2/callback" => 'sessions#provider_login'
+  #could do get "/auth/:provider/callback" this is in case we have multple forms of oauth, then this becomes dynamic and can send all to the same place. it works looking for something between those two slashes. 
+
   resources :offers
 
   resources :stores, only: [:index, :show] do

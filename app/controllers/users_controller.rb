@@ -12,6 +12,7 @@ def create
         #redirect to the show page
         redirect_to user_path(@user)
     else
+        flash[message: @user.errors.full_messages.join]
         render :new
     end
 end
