@@ -6,27 +6,32 @@
     <%= csp_meta_tag %>
 
   
-    <link rel="stylesheet" href="/styles/index.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  
-  <div>
-  
+  <nav class="nav-bar">
     <% if logged_in? %>
+    <div class="log-out">
     <%= link_to "Logout |", logout_path, method:"delete" %>
+    </div>
+    <div class="nav-buttons">
     <%= link_to "Marketplace |", stores_path %>
     <%= link_to "My Offers", user_path(current_user) %>
-    
-   
+    </div>
     <% else %>
+    <div class="log-in">
       <%= link_to "Sign Up", signup_path %> |
       <%= link_to "Log In", login_path %> |
       <%= link_to "Log In With Google", '/auth/google_oauth2'%>
-    <% end %>
+  
     </div>
-
-    
-  <%= yield %>
-  </body>
+    <% end %>
+    </nav>
+  
+    <div class="main-content-site-wrapper">
+      <%= yield %>
+    </div>
+  
+    </body>
 </html>

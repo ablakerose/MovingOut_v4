@@ -26,11 +26,11 @@ class OffersController < ApplicationController
         if id && @item = Item.find_by_id(id)
             offer_price = offer_params[:offer_price] 
             @offer = current_user.offers.build(item_id: id, offer_price: offer_price)
-            @offer.save
+            if @offer.save
             redirect_to user_path(current_user)
-        else
-            redirect_to new_item_offer_path(id)
+            end
         end
+        render :new
     end
 
     def edit
