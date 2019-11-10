@@ -104,3 +104,8 @@ def current_user
 end
 #Methods you build in controllers do not permeate to your ActionVew part of your code
 #THIS IS A HELPER METHOD, PLEASE LET ME USE IT IN MY VIEW!
+
+
+STILL TO DO
+1. create method to convert floats to USD
+2. when I leave offer blank and shows error message and then enter price, "Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".

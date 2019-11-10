@@ -1,23 +1,26 @@
-<h1> From All Apartment Sales </h1>
-<ul>
-<h2> Available Items</h2>
+<h1> For Sale from All Apartments </h1>
+<ol>
+<h4> Available Items</h4>
 <% @items.available.sort_by_date.each do |item| %>
     <li>
-      <%= link_to item.item_name, item_path(item) %> -
+      <%= item.item_name %> -
+      <%= "List Price: $"%><%=item.list_price%><%=0%>-
       <%= link_to "See Offers on this Item", item_offers_path(item) %>
       <%= render_offer_button(item) %>
       </li>
   <% end %>
 
-  <h2> Sold Items</h2>
+  <h4> Sold Items</h4>
   <% @items.sold.sort_by_date.each do |item| %>
     <li>
-      <%= link_to item.item_name, item_path(item) %> -
+      <%= item.item_name %> -
+      <%= "List Price: $"%><%=item.list_price%><%=0%>-
       <%= link_to "See Offers on this Item", item_offers_path(item) %>
-      <%= render_offer_button(item) %>
+      
       </li>
   <% end %>
-</ul>
+  <br>
+</ol>
 
 
 

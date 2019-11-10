@@ -2,7 +2,8 @@
 <ul>
 <% @offers.each do |offer| %>
     <li>
-    <%=offer.item.item_name %> - <%= offer.offer_price %> by <%=offer.user.username %>
+    <%="$"%><%= offer.offer_price %><%="0"%> made on <%=offer.created_at.strftime("%b %d, %Y") %>
     </li>
+   
   <% end %>
 </ul>

@@ -9,7 +9,6 @@ def destroy
 end
 
 def create
-
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
         #if we find the user and their password is correct...

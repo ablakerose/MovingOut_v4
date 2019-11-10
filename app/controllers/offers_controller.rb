@@ -29,8 +29,9 @@ class OffersController < ApplicationController
             if @offer.save
             redirect_to user_path(current_user)
             end
-        end
+        else
         render :new
+        end
     end
 
     def edit
