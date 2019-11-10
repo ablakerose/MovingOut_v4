@@ -9,7 +9,7 @@ root 'sessions#home'
   post '/login' => 'sessions#create' #processes the login 
 
   #logout route
-  delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   #it's important that this is a delete so the user cannot see it in the URL bar
   
   #omniauth callback route
