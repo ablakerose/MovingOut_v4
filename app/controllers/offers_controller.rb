@@ -24,9 +24,9 @@ class OffersController < ApplicationController
             offer_price = offer_params[:offer_price] 
             @offer = current_user.offers.build(item_id: id, offer_price: offer_price)
             if @offer.save
-            redirect_to user_path(current_user)
+                redirect_to user_path(current_user)
+                return
             end
-        else
         render :new
         end
     end
@@ -38,10 +38,13 @@ class OffersController < ApplicationController
     def update
         @offer = Offer.find(params[:id])
         if @offer        
-        @offer.offer_price = offer_params[:offer_price] 
-        @offer.save
+            @offer.offer_price = offer_params[:offer_price] 
+            if @offer.save
+            redirect_to user_path(current_user)
+            return
+            end
         end
-        redirect_to user_path(current_user)
+        render :edit
     end
     
     def show

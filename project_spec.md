@@ -7,7 +7,7 @@ Requirements
 
     [x] Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
     
-3. [] Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+3. [x] Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 
 4. [x] You must include at least one class level ActiveRecord scope method. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
 #would exist on my model
@@ -23,11 +23,11 @@ Requirements
     [x] You must include a nested new route with form that relates to the parent resource
     [x] You must include a nested index or show route
 
-8. *********Your forms should correctly display validation errors.
+8. Your forms should correctly display validation errors.
 
-    [] a. Your fields should be enclosed within a fields_with_errors class
+    [x] a. Your fields should be enclosed within a fields_with_errors class
 
-    [] b. Error messages describing the validation failures must be present within the view.
+    [x] b. Error messages describing the validation failures must be present within the view.
 
 9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
     [] Logic present in your controllers should be encapsulated as methods in your models.
