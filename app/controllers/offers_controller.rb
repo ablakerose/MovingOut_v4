@@ -4,15 +4,12 @@ class OffersController < ApplicationController
         id = params[:item_id]
         if id && @item = Item.find_by_id(id) 
             @offers = @item.offers
-        # if params[:item_id]
-        #     @offers = Offer.where(item_id: params[:item_id])
         else
             @offers = Offer.all 
         end
     end
 
     def new
-       
         id = params[:item_id]
         if id && @item = Item.find_by_id(id)
             @offer = @item.offers.build
@@ -58,6 +55,10 @@ class OffersController < ApplicationController
 private
 def offer_params
     params.require(:offer).permit(:offer_price)
+end
+
+def set_item_id
+    id = params[:item_id]
 end
 
 end
