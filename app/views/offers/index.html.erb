@@ -2,7 +2,7 @@
 <ul>
 <% @offers.each do |offer| %>
     <li>
-    <%="$"%><%= offer.offer_price %><%="0"%> made on <%=offer.created_at.strftime("%b %d, %Y") %>
+    <%= num_to_currency(offer.offer_price) %> made on <%=offer.created_at.to_s(:custom_datetime) %>
     </li>
    
   <% end %>

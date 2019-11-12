@@ -5,9 +5,9 @@
 <ul>
 <% @user.offers.each do |offer| %>
     <li>
-      <%= link_to offer.item.item_name, item_offers_path(offer.item) %> <%= offer.created_at.strftime("%b %d, %Y") %>
-      <br> --you offered: $<%= offer.offer_price %>0 --
-      <br>--list price $<%=offer.item.list_price%>0--
+      <%= link_to offer.item.item_name, item_offers_path(offer.item) %> <%= offer.created_at.to_s(:custom_datetime) %>
+      <br> --you offered: <%= num_to_currency(offer.offer_price) %> --
+      <br>--list price <%=num_to_currency(offer.item.list_price)%>--
       <%= button_to "delete", offer, method: :delete %>
       <br>
     

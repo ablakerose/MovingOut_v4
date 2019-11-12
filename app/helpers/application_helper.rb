@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-    def number_to_currency(number, precision)
-        number_to_currency(number, :precision => 0, :format => "-%u%n")
-    end
-    
+
+def num_to_currency(num)
+    number_to_currency(num, unit: '$', delimiter: '.', separator: '.')
+end
 end

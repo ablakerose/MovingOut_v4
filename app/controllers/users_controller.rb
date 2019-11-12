@@ -32,8 +32,8 @@ def user_params
     params.require(:user).permit(:username, :email, :password)
 end
 
-# def formatted_created_by
-#     self.created_at.strftime("%b %d, %Y")
-# end
+def modified_date
+    strftime("%b %d, %Y")
+end
 
 end
