@@ -34,9 +34,6 @@ def provider_login
         redirect_to root_path
     end
  end
-#by having the do block, you can also include other attributes
-#https://medium.com/@rachel.hawa/google-authentication-strategy-for-rails-5-application-cd37947d2b1b
-
 
 def new
 end

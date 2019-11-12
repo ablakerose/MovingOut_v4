@@ -7,9 +7,7 @@ end
 def create
     @user = User.new(user_params)
     if @user.save
-        #log them in
         session[:user_id] = @user.id 
-        #redirect to the show page
         redirect_to user_path(@user)
     else
         flash[message: @user.errors.full_messages.join]

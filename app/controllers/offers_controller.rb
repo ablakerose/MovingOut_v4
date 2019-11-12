@@ -1,8 +1,8 @@
 class OffersController < ApplicationController
+before_action :set_item_if_nested, only: [:new, :index, :create]
 
     def index
-        id = params[:item_id]
-        if id && @item = Item.find_by_id(id) 
+        if @item
             @offers = @item.offers
         else
             @offers = Offer.all 
@@ -10,8 +10,7 @@ class OffersController < ApplicationController
     end
 
     def new
-        id = params[:item_id]
-        if id && @item = Item.find_by_id(id)
+        if @item
             @offer = @item.offers.build
         else
             redirect_to stores_path
@@ -19,10 +18,9 @@ class OffersController < ApplicationController
     end
 
     def create
-        id = params[:item_id]
-        if id && @item = Item.find_by_id(id)
+        if @item
             offer_price = offer_params[:offer_price] 
-            @offer = current_user.offers.build(item_id: id, offer_price: offer_price)
+            @offer = current_user.offers.build(item_id: @item.id, offer_price: offer_price)
             if @offer.save
                 redirect_to user_path(current_user)
                 return
@@ -32,11 +30,11 @@ class OffersController < ApplicationController
     end
 
     def edit
-        @offer = Offer.find(params[:id])
+        set_offer
     end
 
     def update
-        @offer = Offer.find(params[:id])
+        set_offer
         if @offer        
             @offer.offer_price = offer_params[:offer_price] 
             if @offer.save
@@ -56,12 +54,16 @@ class OffersController < ApplicationController
     end
 
 private
-def offer_params
-    params.require(:offer).permit(:offer_price)
-end
+    def offer_params
+        params.require(:offer).permit(:offer_price)
+    end
 
-def set_item_id
-    id = params[:item_id]
-end
+    def set_item_if_nested
+        @item = Item.find_by_id(params[:item_id]) if params[:item_id]
+    end
+
+    def set_offer
+        @offer = Offer.find(params[:id])
+    end
 
 end
